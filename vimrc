@@ -17,3 +17,10 @@ set ignorecase
 set ruler
 
 set autoindent
+
+set autowrite
+
+execute pathogen#infect()
+
+nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F3> :BuffergatorOpen<CR>
