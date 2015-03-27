@@ -6,4 +6,6 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+alias stopx='pkill -15 Xorg'
+
+PS1='\[\e[1;36m\][\u@\h \W] \!\$\[\e[0m\] '

@@ -22,5 +22,12 @@ set autowrite
 
 execute pathogen#infect()
 
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+ 
+set scrolloff=5
+
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :BuffergatorOpen<CR>
+nnoremap <F5> :wall<CR>:make<CR>
