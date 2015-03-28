@@ -1,33 +1,48 @@
 set nocompatible
-syntax enable
 
-set number
-
+"Options for tabs
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 
-set laststatus=2
-
+"Options for comfortable programming
+set autoindent
+syntax enable
 filetype indent on
 
+"Common options
 set ignorecase
-
 set ruler
-
-set autoindent
-
 set autowrite
+set scrolloff=5
+set hidden
+set laststatus=2
+set number
 
+"Pathogen options
 execute pathogen#infect()
+execute pathogen#helptags()
 
+"Solarized colorscheme options
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
- 
-set scrolloff=5
 
-nnoremap <F2> :NERDTreeToggle<CR>
-nnoremap <F3> :BuffergatorOpen<CR>
-nnoremap <F5> :wall<CR>:make<CR>
+"Useful key bindings
+let mapleader='\'
+
+nnoremap <leader>n :call ToggleNumberStyle()<CR>
+
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+
+nnoremap <F2> :NERDTreeToggle<CR> "Open window with directory tree
+nnoremap <F3> :BuffergatorOpen<CR> "Open window with opened buffers
+nnoremap <F5> :set makeprg=make<CR>:wall<CR>:make<CR> "Run make
+nnoremap <F7> :set makeprg=gcc\ %\ -o\ %:r<CR>:w<CR>:make<CR> "Compile current file
+
+"FUNCTIONS
+function! ToggleNumberStyle()
+    set relativenumber!
+endfunction

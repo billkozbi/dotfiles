@@ -8,4 +8,7 @@
 alias ls='ls --color=auto'
 alias stopx='pkill -15 Xorg'
 
-PS1='\[\e[1;36m\][\u@\h \W] \!\$\[\e[0m\] '
+PS1='\[\e[0;32m\][\u@\h \w]\n\!\$\[\e[0m\] '
+
+#listing colors
+export LS_COLORS=$LS_COLORS:'ex=0;35'
