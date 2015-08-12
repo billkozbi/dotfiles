@@ -1,10 +1,31 @@
 set nocompatible
 
+"VUNDLE
+filetype off    
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'bling/vim-airline'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 "Options for tabs
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+
+"Options for toggling autoindentation
+nnoremap <F12> :set invpaste paste?<CR>
+set pastetoggle=<F12>
+set showmode
 
 "Options for comfortable programming
 set autoindent
@@ -17,12 +38,9 @@ set ruler
 set autowrite
 set scrolloff=5
 set hidden
-set laststatus=2
 set number
-
-"Pathogen options
-execute pathogen#infect()
-execute pathogen#helptags()
+set showcmd
+set laststatus=2
 
 "Solarized colorscheme options
 set background=dark
@@ -34,13 +52,15 @@ let mapleader='\'
 
 nnoremap <leader>n :call ToggleNumberStyle()<CR>
 
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
+nnoremap j :m .+1<CR>==
+nnoremap k :m .-2<CR>==
 
 nnoremap <F2> :NERDTreeToggle<CR> "Open window with directory tree
-nnoremap <F3> :BuffergatorOpen<CR> "Open window with opened buffers
+nnoremap <F3> :BuffergatorOpen<CR>
+nnoremap <F5> :silent make\|redraw!\|cc<CR>
 
 "FUNCTIONS
 function! ToggleNumberStyle()
     set relativenumber!
 endfunction
+
